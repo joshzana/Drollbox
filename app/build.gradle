@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.1"
+
+    defaultConfig {
+        applicationId "com.joshzana.drollbox"
+        minSdkVersion 21
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    // http://developer.android.com/tools/support-library/index.html
+    compile 'com.android.support:recyclerview-v7:21.0.+'
+    compile 'com.android.support:palette-v7:21.0.+'
+    compile 'com.android.support:support-v4:21.0.+'
+
+    // http://square.github.io/okhttp/
+    compile 'com.squareup.okhttp:okhttp:2.1.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.1.0'
+
+    // https://github.com/ReactiveX/RxAndroid
+    compile 'io.reactivex:rxandroid:0.23.0'
+
+    // http://jakewharton.github.io/butterknife/
+    compile 'com.jakewharton:butterknife:6.0.0'
+
+    // http://square.github.io/dagger/
+    compile 'com.squareup.dagger:dagger:1.2.2'
+    provided 'com.squareup.dagger:dagger-compiler:1.2.2'
+
+    // Note: Dropbox API integration requires a jar and so files under libs and jniLibs.  Not just a maven string
+}
